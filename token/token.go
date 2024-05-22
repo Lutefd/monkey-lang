@@ -13,7 +13,7 @@ const (
 
 	// Identifiers + literals
 	IDENT = "IDENT"
-	IN = "INT"
+	INT = "INT"
 
 	// Operators
 	ASSIGN = "="
