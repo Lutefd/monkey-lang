@@ -17,9 +17,9 @@ func TestNextToken( t *testing.T) {
 	let result = add(five,ten);
 	!-/*5
 	5 < 10 > 5
-	if ( x > 5 ) {
+	if(x > 5) {
 		x = 5
-	} else {
+	} el {
 		x = 1
 	}
 	`
@@ -83,7 +83,7 @@ func TestNextToken( t *testing.T) {
 		{token.ASSIGN, "="},
 		{token.INT, "5"},
 		{token.RBRACE, "}"},
-		{token.ELSE, "else"},
+		{token.ELSE, "el"},
 		{token.LBRACE, "{"},
 		{token.IDENT, "x"},
 		{token.ASSIGN, "="},
