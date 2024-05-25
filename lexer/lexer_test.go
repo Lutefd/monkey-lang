@@ -16,8 +16,13 @@ func TestNextToken( t *testing.T) {
 	
 	let result = add(five,ten);
 	!-/*5
-	5 < 10 > 5`
-
+	5 < 10 > 5
+	if ( x > 5 ) {
+		x = 5
+	} else {
+		x = 1
+	}
+	`
 	tests := []struct {
 		expectedType token.TokenType
 		expectedLiteral string
@@ -67,6 +72,23 @@ func TestNextToken( t *testing.T) {
 		{token.INT, "10"},
 		{token.GT, ">"},
 		{token.INT, "5"},
+		{token.IF, "if"},
+		{token.LPAREN, "("},
+		{token.IDENT, "x"},
+		{token.GT, ">"},
+		{token.INT, "5"},
+		{token.RPAREN, ")"},
+		{token.LBRACE, "{"},
+		{token.IDENT, "x"},
+		{token.ASSIGN, "="},
+		{token.INT, "5"},
+		{token.RBRACE, "}"},
+		{token.ELSE, "else"},
+		{token.LBRACE, "{"},
+		{token.IDENT, "x"},
+		{token.ASSIGN, "="},
+		{token.INT, "1"},
+		{token.RBRACE, "}"},
 		{token.EOF, ""},
 	}
 	l := New(input)
