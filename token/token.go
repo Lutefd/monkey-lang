@@ -41,7 +41,10 @@ const (
 	// Conditionals
 	IF = "IF"
 	ELSE = "ELSE"
-
+	TRUE = "TRUE"
+	FALSE = "FALSE"
+	RETURN = "RETURN"
+	EQUALS = "EQUALS"
 )
 
 var keywords = map[string]TokenType{
@@ -49,6 +52,10 @@ var keywords = map[string]TokenType{
 	"let": LET,
 	"if": IF,
 	"el": ELSE,
+	"true": TRUE,
+	"false": FALSE,
+	"return": RETURN,
+	"==": EQUALS,
 }
 
 func LookupIdent(ident string) TokenType {
