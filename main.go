@@ -2,17 +2,19 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	"os"
+	"os/user"
 
-	"github.com/lutefd/monkey-lang/lexer"
+	"github.com/lutefd/monkey-lang/repl"
 )
 
 func main () {
-	testStr := "test ==	 aa"
-	l := lexer.New(testStr)
-	testFields := strings.Fields(testStr)
-	for _, test := range testFields{
-		l.NextToken()
-		fmt.Println(test)
+	user, err := user.Current()
+	if err != nil {
+		panic(err)
 	}
+
+	fmt.Printf("Hello %s! This is the Monkey programming language!\n", user.Username)
+	fmt.Printf("Feel free to type in commands\n")
+	repl.Start(os.Stdin, os.Stdout)
 }
